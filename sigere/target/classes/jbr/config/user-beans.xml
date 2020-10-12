@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation=" http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+    <mvc:annotation-driven />
+    <context:component-scan base-package="com.proyectofinal.web" />
+    <context:annotation-config />   
+    <bean id="userService" class="com.proyectofinal.web.service.UserServiceImpl" />
+    <bean id="userDao" class="com.proyectofinal.web.dao.UserDaoImpl" />
+    <bean id="projectService" class="com.proyectofinal.web.service.ProjectServiceImpl" />
+    <bean id="projectDao" class="com.proyectofinal.web.dao.ProjectDaoImpl" />
+    <bean id="requirementDao" class="com.proyectofinal.web.dao.RequirementDaoImpl" />
+    <bean id="requirementService" class="com.proyectofinal.web.service.RequirementServiceImpl" />
+    <bean id="specificationDao" class="com.proyectofinal.web.dao.SpecificationDaoImpl"/>
+    <bean id="specificationService" class="com.proyectofinal.web.service.SpecificationServiceImpl"/>
+    <bean id="memberDao" class="com.proyectofinal.web.dao.MemberDaoImpl"/>
+    <bean id="memberService" class="com.proyectofinal.web.service.MemberServiceImpl"/>
+    <bean id="noteDao" class="com.proyectofinal.web.dao.NoteDaoImpl"/>
+    <bean id="noteService" class="com.proyectofinal.web.service.NoteServiceImpl"/>
+    <bean id="mailDao" class="com.proyectofinal.web.dao.MailDaoImpl"/>
+    <bean id="mailService" class="com.proyectofinal.web.service.MailServiceImpl"/>
+    <bean id="SRSDao" class="com.proyectofinal.web.dao.SRSDaoImpl" />
+    <bean id="SRSService" class="com.proyectofinal.web.service.SRSServiceImpl"  /> 
+    <bean id="ImageDao" class="com.proyectofinal.web.dao.ImageDaoImpl"/>
+    <bean id="ImageService" class="com.proyectofinal.web.service.ImageServiceImpl"/> 
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+    
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="datasource" />
+    </bean>
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/sigeredb" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
+        
+        
+    </bean>
+    
+</beans>
